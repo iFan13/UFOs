@@ -30,15 +30,53 @@ function buildTable(data) {
   }
 
   function handleClick() {
-    // Grab the datetime value from the filter
-    let date = d3.select("#datetime").property("value");
+    // Grab all values from the filter
+    let filters = ['datetime', 'city', 'state', 'country', 'shape'];
+    let filterby = {};
+    filters.forEach(fxn) 
+    console.log(filterby)
+    console.log(filterby['datetime'])
+    
+    function fxn(filter) {
+    filterby[filter]=d3.select("#"+filter).property("value").toLowerCase();
+    }
+    
     let filteredData = tableData;
     
     // Check to see if a date was entered and filter the data using that date.
-    if (date) {
-        filteredData = filteredData.filter(row => row.datetime === date);
-    };
+    if (filterby['datetime']) {
+        filteredData = filteredData.filter(row => row.datetime === filterby['datetime']);
+    }
+
+    // Check to see if a city was entered and filter the data using the city
+    if (filterby['city']) {
+        filteredData = filteredData.filter(row => row.city === filterby['city']);
+    }
+    // Check to see if a state was entered and filter the data using the state
+    if (filterby['state']) {
+        filteredData = filteredData.filter(row => row.state === filterby['state']);
+    }
+
+    // Check to see if a country was entered and filter the data using the country
+    if (filterby['state']) {
+        filteredData = filteredData.filter(row => row.country === filterby['country']);
+    }
+
+    // Check to see if a shape was entered and filter the data using the shape
+    if (filterby['shape']) {
+        filteredData = filteredData.filter(row => row.shape === filterby['shape']);
+    }
     
+    /*
+    filteredData = filteredData.filter(row => 
+        row.datetime === filterby['datetime'] &&
+        row.city === filterby['city'] &&
+        row.state === filterby['state'] &&
+        row.country === filterby['country'] &&
+        row.shape === filterby['shape']
+        )
+    */
+   
     // Rebuild table using filtered data. If no date entered, filteredData is just OG tableData
     buildTable(filteredData);
   };
