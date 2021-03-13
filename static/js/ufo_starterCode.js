@@ -45,7 +45,7 @@ function updateFilters() {
       filterBy[id]=changedValue
     }
     else {
-      delete filterBy.id;
+      delete filterBy[id];
     }
 
     // 6. Call function to apply all filters and rebuild the table
@@ -61,15 +61,22 @@ function updateFilters() {
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
+    //Object.entries(filterBy)
+
+    /*
+    arrays = Object.entries(filterBy)
+    for (var i = 0; i < arrays.length; i++) {
+      if (arrays[i][1]){
+        filteredData=filteredData.filter(row=> row[arrays[i][0]] === arrays[i][1])
+      }
+    }
+    */
     for (let filter in filterBy){
-      
       if (filterBy[filter]) {
-        console.log('entered if of the loop properly')
-        console.log(row.filter)
-        filteredData = filteredData.filter(row => row.filter === filterBy[filter]);
+        filteredData = filteredData.filter(row => row[filter] === filterBy[filter]);
       };
     }
-    
+
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);
   }
