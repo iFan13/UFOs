@@ -17,7 +17,7 @@ This project demonstrates the usage of javascript, html and github pages functio
 
 To use the webpage, click the link to the live web page above in resources or [here](https://ifan13.gihub.io/UFOs/). Visitors to the webpage will be greeted by a banner, a brief blurb, followed by a filter and table. To filter the table, users need only to type in their filter criteria. Hitting return/enter or changing the text box user is working in will then dynamically update the table filtering by the criteria as more filters are added. Note that there are placeholder texts that provide the intended format of the inputs.
 
-[animated_gif_filter](/Resources/filter_table.gif)
+![animated_gif_filter](/Resources/filter_table.gif)
 
 ## Summary
 
@@ -25,7 +25,7 @@ A draw back of this webpage is ...
 
 To further develop this webpage, one change to the webpage that could be made to improve functionality is in how the input data is handled. Since the input is a text box, users are free to type in whatever they choose and any mismatches may cause the filter to not work properly. Data validation via formatting can be done on the entered filters using the .toLowerCase() method for example and .trim() to force the input to lowercase and remove any leading or trailing white space to match the [data objects](/static/js/data.js).
 
-[string_validation](/Resources/data_validation_by_string_manip.png)
+![string_validation](/Resources/data_validation_by_string_manip.png)
 
 A second recommendation would be adding dynamically updated filters and data validation for filter entry. For example, the date filter could be changed into a datepicker widget (documentation found [here](https://bootstrap-datepicker.readthedocs.io/en/latest/)). For the fields of city, state, country and shape, it would be possible to find all values available in the table and changing these filters to a dropdown menu (documentation found [here](https://getbootstrap.com/docs/5.0/components/dropdowns/)) and changing the filters from open input text boxes to dropdown style filters for city, state, country and shape criteria.
 
