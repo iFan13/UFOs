@@ -19,14 +19,18 @@ To use the webpage, click the link to the live web page above in resources or [h
 
 ![animated_gif_filter](/Resources/filter_table.gif)
 
+Similarly, as filters are removed and text boxes cleared, the table will dynamically respond in kind by removing the filter.
+
+![animated_gif_unfilter](Resources/remove_filters.gif)
+
 ## Summary
 
-A draw back of this webpage is ...
+A draw back of this webpage is the filters being free text inputs. Errors in user usage can cause unintended result or unsatisfactory results for the user.
 
 To further develop this webpage, one change to the webpage that could be made to improve functionality is in how the input data is handled. Since the input is a text box, users are free to type in whatever they choose and any mismatches may cause the filter to not work properly. Data validation via formatting can be done on the entered filters using the .toLowerCase() method for example and .trim() to force the input to lowercase and remove any leading or trailing white space to match the [data objects](/static/js/data.js).
 
 ![string_validation](/Resources/data_validation_by_string_manip.png)
 
-A second recommendation would be adding dynamically updated filters and data validation for filter entry. For example, the date filter could be changed into a datepicker widget (documentation found [here](https://bootstrap-datepicker.readthedocs.io/en/latest/)). For the fields of city, state, country and shape, it would be possible to find all values available in the table and changing these filters to a dropdown menu (documentation found [here](https://getbootstrap.com/docs/5.0/components/dropdowns/)) and changing the filters from open input text boxes to dropdown style filters for city, state, country and shape criteria.
+A follow up on the data validation, and secondary recommendation, would be to remove the user error capability. This can be done by adding dynamically updated filters and data validation for filter entries. For example, the date filter could be changed into a datepicker widget (documentation found [here](https://bootstrap-datepicker.readthedocs.io/en/latest/)) such that the date format is always the correct format. For the fields of city, state, country and shape, it would be possible to find all values available in the table and changing the filters for city, state, country and shape criteria to a dropdown menu or list (documentation found [here](https://getbootstrap.com/docs/5.0/components/dropdowns/)).
 
 A third recommendation is to increase the table's visibility by increasing the size and putting the filters in a side menu or panel such that the filter could be reached at any point of scrolling the table rather than at the very top of the table. Tools build this would be using Bootstrap and jQuery. Documentation and a sample on how to do this can be found [here](https://www.jqueryscript.net/menu/Sliding-Side-Menu-Panel-with-jQuery-Bootstrap-BootSideMenu.html).
