@@ -63,19 +63,30 @@ function updateFilters() {
     // matches the filter values
     //Object.entries(filterBy)
 
+    //Method 0
     /*
-    arrays = Object.entries(filterBy)
-    for (var i = 0; i < arrays.length; i++) {
-      if (arrays[i][1]){
-        filteredData=filteredData.filter(row=> row[arrays[i][0]] === arrays[i][1])
-      }
-    }
-    */
     for (let filter in filterBy){
       if (filterBy[filter]) {
         filteredData = filteredData.filter(row => row[filter] === filterBy[filter]);
       };
     }
+    */
+
+    //Method 1 refactor
+    //var t0 = performance.now()
+    for (let filter in filterBy) {filterBy[filter] ? filteredData = filteredData.filter(row => row[filter] === filterBy[filter]) : pass}
+    //var t1 = performance.now()
+    //console.log(t1-t0)
+
+    //Method 2
+    /*
+    var t2 = performance.now()
+    Object.entries(filterBy).forEach( ([key,value])=> {
+      filteredData=filteredData.filter(row =>row[key] === value)
+    });
+    var t3 = performance.now()
+    console.log(t3-t2)
+    */
 
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);
